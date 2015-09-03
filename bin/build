@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+crystal build "$@" -o bin/app ./app.cr
