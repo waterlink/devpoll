@@ -7,6 +7,7 @@ devpoll - small web application for making polls written in Crystal lang.
 - `bin/deps` to install dependencies
 - `bin/test` to run specs
 - `bin/build` to build `bin/app`
+- `bin/migrate up` to run migrations
 - `bin/devserver` to run development server (build & run)
 - `bin/app` to run compiled app
 

@@ -1,5 +1,8 @@
-require "./devpoll/*"
+require "http"
+
+require "./models/*"
+require "./dispatcher"
+require "./server"
 
 module Devpoll
-  # TODO Put your code here
 end

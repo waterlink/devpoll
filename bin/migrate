@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+crystal run src/migrate/$1.cr
