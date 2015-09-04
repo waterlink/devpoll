@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run --rm -it \
+  -v $PWD/tmp:/logs voxxit/httperf \
+    --server=devpoll.herokuapp.com \
+    --uri=/polls/test \
+    --port=80 \
+    --num-conn=400 --num-calls 15 --max-connections 150 --rate 30 --burst-length 15

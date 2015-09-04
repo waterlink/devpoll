@@ -10,6 +10,7 @@ devpoll - small web application for making polls written in Crystal lang.
 - `bin/migrate up` to run migrations
 - `bin/devserver` to run development server (build & run)
 - `bin/app` to run compiled app
+- `bin/bench` to run benchmark against deployed app
 
 ## Deployment (heroku)
 
