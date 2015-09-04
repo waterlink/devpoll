@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+DATABASE_URL=$(heroku config:get CLEARDB_DATABASE_URL)
+heroku config:set DATABASE_URL="$DATABASE_URL" >/dev/null && \
+  git push heroku

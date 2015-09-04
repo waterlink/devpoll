@@ -1,3 +1,5 @@
 deps do
-  # github "[your-github-name]/example"
+  github "waterlink/active_record.cr"
+  github "waterlink/crystal-mysql"
+  github "waterlink/mysql_adapter.cr"
 end

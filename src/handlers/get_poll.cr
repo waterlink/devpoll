@@ -1,6 +1,10 @@
+require "ecr/macros"
+
 module Devpoll
   module Handlers
     class GetPoll
+      ecr_file "./src/views/get_poll.ecr"
+
       BY_REGEX = %r{^/polls/([^/]+)/?$}
 
       def self.matches?(method, path)
@@ -15,11 +19,19 @@ module Devpoll
 
       def call
         return not_found unless poll
-        HTTP::Response.new(200, "Got poll: #{poll.inspect}", HTTP::Headers{"Content-Type": "text/plain"})
+        HTTP::Response.new(200, to_s, HTTP::Headers{"Content-Type": "text/html"})
       end
 
       def poll
         @_poll ||= Models::Poll.find_by_slug(slug)
+      end
+
+      def poll!
+        poll.not_nil!
+      end
+
+      def answers
+        @_answers ||= Models::Answer.within(poll)
       end
 
       def not_found

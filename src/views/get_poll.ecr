@@ -1,0 +1,14 @@
+<h1><%= poll!.content %></h1>
+
+<hr>
+
+<form method="POST" action="/polls/<%= poll!.slug %>/answers">
+  <% answers.each do |answer| %>
+  <input type="radio" id="value_<%= answer.id %>" name="value" value="<%= answer.value %>" />
+  <label for="value_<%= answer.id %>"><%= answer.value %></label>
+  <% end %>
+
+  <hr>
+
+  <input type="submit" value="Submit" />
+</form>
