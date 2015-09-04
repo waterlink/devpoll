@@ -4,6 +4,7 @@ module Devpoll
   class Dispatcher < HTTP::Handler
     HANDLERS = [
       Handlers::GetPoll,
+      Handlers::PostAnswer,
       Handlers::NotFound,
     ]
 

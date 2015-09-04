@@ -13,13 +13,18 @@ module Devpoll
       end
 
       getter request, slug
-      def initialize(@request)
+      def initialize(r)
+        @request = Amethyst::Http::Request.new(r)
         @slug = request.path.match(BY_REGEX).not_nil![1]
       end
 
       def call
         return not_found unless poll
         HTTP::Response.new(200, to_s, HTTP::Headers{"Content-Type": "text/html"})
+      end
+
+      def can_vote?
+        request.cookies["voted_on_#{slug}"]? != "true"
       end
 
       def poll

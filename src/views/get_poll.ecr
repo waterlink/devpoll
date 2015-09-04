@@ -2,6 +2,8 @@
 
 <hr>
 
+<% if can_vote? %>
+
 <form method="POST" action="/polls/<%= poll!.slug %>/answers">
   <% answers.each do |answer| %>
   <input type="radio" id="value_<%= answer.id %>" name="value" value="<%= answer.value %>" />
@@ -12,3 +14,15 @@
 
   <input type="submit" value="Submit" />
 </form>
+
+<% else %>
+
+<h2>Results:</h2>
+
+<ul>
+  <% answers.each do |answer| %>
+  <li>"<%= answer.value %>" - <%= answer.voted %> voted</li>
+  <% end %>
+</ul>
+
+<% end %>
