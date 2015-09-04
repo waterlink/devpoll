@@ -14,7 +14,14 @@ devpoll - small web application for making polls written in Crystal lang.
 
 ## Deployment (heroku)
 
-TODO
+You will need to set these variables:
+
+```
+BUILDPACK_URL:   https://github.com/zamith/heroku-buildpack-crystal.git
+CRYSTAL_ENV:     production
+
+CLEARDB_DATABASE_URL or DATABASE_URL:   <get it from heroku addons or on aws, anywhere>
+```
 
 ## Contributing
 
