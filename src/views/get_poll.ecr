@@ -1,28 +1,48 @@
-<h1><%= poll!.content %></h1>
+<!doctype html>
 
-<hr>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-<% if can_vote? %>
+  <title><%= poll!.content %> - Devpoll</title>
 
-<form method="POST" action="/polls/<%= poll!.slug %>/answers">
-  <% answers.each do |answer| %>
-  <input type="radio" id="value_<%= answer.id %>" name="value" value="<%= answer.value %>" />
-  <label for="value_<%= answer.id %>"><%= answer.value %></label>
-  <% end %>
+  <meta name="description" content="Small web application for making polls written in Crystal language">
+  <meta name="author" content="Oleksii Fedorov (waterlink)">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <h1><%= poll!.content %></h1>
 
   <hr>
 
-  <input type="submit" value="Submit" />
-</form>
+  <% if can_vote? %>
 
-<% else %>
+  <form method="POST" action="/polls/<%= poll!.slug %>/answers">
+    <% answers.each do |answer| %>
+    <input type="radio" id="value_<%= answer.id %>" name="value" value="<%= answer.value %>" />
+    <label for="value_<%= answer.id %>"><%= answer.value %></label>
+    <% end %>
 
-<h2>Results:</h2>
+    <hr>
 
-<ul>
-  <% answers.each do |answer| %>
-  <li>"<%= answer.value %>" - <%= answer.voted %> voted</li>
+    <input type="submit" value="Submit" />
+  </form>
+
+  <% else %>
+
+  <h2>Results:</h2>
+
+  <ul>
+    <% answers.each do |answer| %>
+    <li>"<%= answer.value %>" - <%= answer.voted %> voted</li>
+    <% end %>
+  </ul>
+
   <% end %>
-</ul>
 
-<% end %>
+</body>
