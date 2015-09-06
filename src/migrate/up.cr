@@ -28,7 +28,7 @@ module Devpoll
     voted INT
   )")
 
-  ["< 2", "2-3", "3-5", "5-10", "10-15", "> 15"].each do |value|
+  ["< 2", "2-3", "3-5", "5-10", "10-15", "> 15", "just want to see answers"].each do |value|
     unless Models::Answer.find_by_value(value, within: poll)
       Models::Answer.create({
         "poll_id" => poll.id,
