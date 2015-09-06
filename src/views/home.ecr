@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>List of polls - Devpoll - Small web application for making polls written in Crystal language</title>
+
+  <meta name="description" content="List of polls">
+  <meta name="author" content="Oleksii Fedorov (waterlink)">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <h1>List of polls</h1>
+
+  <hr>
+
+  <ul>
+  <% polls.each do |poll| %>
+  <li><a href="/polls/<%= poll.slug %>"><%= poll.content %></a></li>
+  <% end %>
+  </ul>
+</body>

@@ -15,6 +15,10 @@ module Devpoll
       def self.find_by_slug(slug)
         where(criteria("slug") == slug).first?
       end
+
+      def self.find_all
+        index
+      end
     end
   end
 end

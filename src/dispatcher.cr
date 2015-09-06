@@ -3,6 +3,7 @@ require "./handlers/*"
 module Devpoll
   class Dispatcher < HTTP::Handler
     HANDLERS = [
+      Handlers::Home,
       Handlers::GetPoll,
       Handlers::PostAnswer,
       Handlers::NotFound,
