@@ -5,8 +5,8 @@ module Devpoll
       @server = HTTP::Server.new(port, [
         HTTP::LogHandler.new,
         HTTP::ErrorHandler.new,
-        HTTP::StaticFileHandler.new("./src/public/"),
         Dispatcher.new,
+        HTTP::StaticFileHandler.new("./src/public/"),
       ])
     end
 
